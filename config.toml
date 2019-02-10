@@ -1,4 +1,4 @@
-baseURL = "https://example.org/"
+baseURL = "/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 
@@ -12,3 +12,6 @@ isHTML = true
 [build]
 publish = "public"
 command = "hugo"
+
+[build.environment]
+HUGO_VERSION = "0.40"

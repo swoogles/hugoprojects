@@ -23,19 +23,19 @@ or, how a single request can generate 800,000 exceptions.
 {{<mermaid>}}
 graph TB
 subgraph 
-StaticRequest-->StaticDependencyA
-StaticRequest-->StaticDependencyB
-StaticDependencyB-->StaticDependencyC
-subgraph innie
-A-->B
-end
+  subgraph 
+  StaticRequest-->StaticDependencyA
+  StaticRequest-->StaticDependencyB
+  StaticDependencyB-->StaticDependencyC
+  end
 
-end
-subgraph 
-CdiRequest
-CdiRequest-->InjectedDependencyA
-CdiRequest-->InjectedDependencyB
-InjectedDependencyB-->StaticDependencyC
+  subgraph 
+  CdiRequest
+  CdiRequest-->InjectedDependencyA
+  CdiRequest-->InjectedDependencyB
+  end
+  InjectedDependencyB-->StaticDependencyC
+  InjectedDependencyC
 end
 {{</mermaid>}}
 

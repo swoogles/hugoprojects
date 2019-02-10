@@ -20,13 +20,31 @@ or, how a single request can generate 800,000 exceptions.
 - {{% fragment %}}Can't get Facility null{{% /fragment %}}
 
 ---
-- {{% fragment %}}One{{% /fragment %}}
-- {{% fragment %}}Two{{% /fragment %}}
-- {{% fragment %}}Three{{% /fragment %}}
-- {{% fragment %}}Four{{% /fragment %}}
+{{<mermaid align="left">}}
+graph LR;
+  A[Hard edge] -->|Link text| B(Round edge)
+  B --> C{Decision}
+  C -->|One| D[Result one]
+  C -->|Two| E[Result two]
+{{< /mermaid >}}
 
 ---
 {{<mermaid>}}
   graph TD
   Start --> Stop
+{{</mermaid>}}
+
+---
+{{<mermaid>}}
+graph TB
+c1-->a2
+subgraph one
+a1-->a2
+end
+subgraph two
+b1-->b2
+end
+subgraph three
+c1-->c2
+end
 {{</mermaid>}}

@@ -55,9 +55,10 @@
   console.log("Doing my shit.");
       var config = {
                 startOnLoad:true,
+                cloneCssStyles: false,
                 flowchart:{
                               useMaxWidth:true,
-                              htmlLabels:true
+                              htmlLabels:false
                           }
             };
     mermaid.initialize(config);

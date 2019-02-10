@@ -20,6 +20,22 @@ or, how a single request can generate 800,000 exceptions.
 - {{% fragment %}}Can't get Facility null{{% /fragment %}}
 
 ---
+{{<mermaid>}}
+graph TB
+subgraph 
+CdiRequest
+CdiRequest-->InjectedDependencyA
+CdiRequest-->InjectedDependencyB
+InjectedDependencyB-->FacilityConfigLogic
+end
+subgraph 
+StaticRequest-->StaticDependencyA
+StaticRequest-->StaticDependencyB
+StaticDependencyB-->FacilityConfigLogic
+end
+{{</mermaid>}}
+
+---
 {{<mermaid align="left">}}
 graph LR;
   A[Hard edge] -->|Link text| B(Round edge)
@@ -28,21 +44,3 @@ graph LR;
   C -->|Two| E[Result two]
 {{< /mermaid >}}
 
----
-{{<mermaid>}}
-  graph TD
-  Start --> Stop
-{{</mermaid>}}
-
----
-{{<mermaid>}}
-graph TB
-subgraph 
-CdiRequest-->FacilityConfigLogic
-CdiRequest-->InjectedDependency
-end
-subgraph 
-StaticRequest-->FacilityConfigLogic
-StaticRequest-->StaticDependency
-end
-{{</mermaid>}}

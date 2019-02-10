@@ -26,7 +26,7 @@ subgraph
   subgraph 
   StaticRequest-->StaticDependencyA
   StaticRequest-->StaticDependencyB
-  StaticDependencyB-->StaticDependencyC
+  StaticDependencyB-->StaticDbAccess
   end
 
   subgraph 
@@ -34,9 +34,17 @@ subgraph
   CdiRequest-->InjectedDependencyA
   CdiRequest-->InjectedDependencyB
   end
-  InjectedDependencyB-->StaticDependencyC
-  InjectedDependencyC
+  InjectedDependencyB-->StaticDbAccess
+  InjectedDbAccess
 end
+{{</mermaid>}}
+
+---
+{{<mermaid>}}
+graph LR
+  id1(Start)-->id2(Stop)
+  style id1 fill:#f9f,stroke:#333,stroke-width:8px
+  style id2 fill:#ccf,stroke:#f66,stroke-width:8px,stroke-dasharray: 5, 5
 {{</mermaid>}}
 
 ---

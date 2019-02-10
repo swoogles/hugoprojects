@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 
@@ -15,10 +15,3 @@ command = "hugo"
 
 [build.environment]
 HUGO_VERSION = "0.54"
-
-[context.production.environment]
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
-
-[context.deploy-preview]
-command = "hugo --buildDrafts --buildFuture --baseURL $DEPLOY_PRIME_URL"

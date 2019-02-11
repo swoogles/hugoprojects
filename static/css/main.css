@@ -4,3 +4,9 @@
 div[id^="mermaid-"] {
       background: #f7f7f7;
     }
+    .messageText {
+        font-size: 14pt;
+      }
+tspan {
+        font-size: 14pt;
+}

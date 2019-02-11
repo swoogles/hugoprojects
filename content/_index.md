@@ -58,9 +58,13 @@ sequenceDiagram
   participant CDI as CdiRequest
   participant STAT as StaticRequest
   STAT->>CP: Give me a connection
-  CP-->STAT: Here's connectionA
+  CP-->>STAT: Here's connectionA
+  activate STAT
   CDI->>CP: Give me a connection
-  CP-->CDI: Here's connectionB
+  CP-->>CDI: Here's connectionB
+  activate CDI
+  deactivate STAT
+  deactivate CDI
 {{</mermaid>}}
 
 
@@ -70,6 +74,14 @@ sequenceDiagram
 
 ---
 Junk drawer from here on out.
+
+---
+### Sequence Diagram Junk
+{{<mermaid>}}
+sequenceDiagram
+    Alice->John: Hello John, how are you?
+    Note over Alice,John: A typical interaction
+{{</mermaid>}}
 
 ---
 {{<mermaid>}}

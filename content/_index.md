@@ -63,7 +63,10 @@ sequenceDiagram
   CDI->>CP: Give me a connection
   CP-->>CDI: Here's connectionB
   activate CDI
+  CDI-->STAT: Non-conflicting action
+  STAT->>CP: Done with connectionA
   deactivate STAT
+  CDI->>CP: Done with connectionA
   deactivate CDI
 {{</mermaid>}}
 

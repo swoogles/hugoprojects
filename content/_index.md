@@ -50,6 +50,15 @@ end
 
 
 
+---
+{{<mermaid>}}
+sequenceDiagram
+  participant ConnectionPool
+  participant CdiRequest
+  participant StaticRequest
+  StaticRequest->>ConnectionPool: Give me a connection
+{{</mermaid>}}
+
 
 
 

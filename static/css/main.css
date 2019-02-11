@@ -1,0 +1,6 @@
+.mermaid {
+  background: #f7f7f7;
+}
+div[id^="mermaid-"] {
+      background: #f7f7f7;
+    }

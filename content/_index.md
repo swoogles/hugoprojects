@@ -7,20 +7,26 @@ outputs = ["Reveal"]
 or, how a single request can generate 800,000 exceptions.
 
 ---
-# Troubling Symptoms
+## Troubling Symptoms
 - {{% fragment %}}DB Degradation{{% /fragment %}}
 - {{% fragment %}}Ram Exhaustion{{% /fragment %}}
 - {{% fragment %}}Full Hard Drives!{{% /fragment %}}
 
 
 ---
+{{% section %}}
 # Analyzing
-- {{% fragment %}}"I see something about Consent" - Austin{{% /fragment %}}
-- {{% fragment %}}Errors in FacilityConfig{{% /fragment %}}
-- {{% fragment %}}Can't get Facility null{{% /fragment %}}
 
+---
+### "I see something about Consent" - Austin
 
+---
+### Errors in FacilityConfig
 
+---
+### Can't get Facility null
+
+{{% /section %}}
 
 
 

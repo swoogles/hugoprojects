@@ -14,7 +14,7 @@ or, how a single request can generate 800,000 exceptions.
 
 
 ---
-# Analyzing (Turn into separate slides)
+# Analyzing
 - {{% fragment %}}"I see something about Consent" - Austin{{% /fragment %}}
 - {{% fragment %}}Errors in FacilityConfig{{% /fragment %}}
 - {{% fragment %}}Can't get Facility null{{% /fragment %}}
@@ -37,10 +37,11 @@ graph TB
     StaticConfigAccess-.->threadLocalCdiConnection
   end
 
+  InjectedDependencyA
   subgraph 
     CdiRequest
-    CdiRequest-->InjectedDependencyA
     CdiRequest-->InjectedDependencyB
+    CdiRequest-->InjectedDependencyA
   end
 
   InjectedDependencyB-->StaticConfigAccess

@@ -51,12 +51,16 @@ end
 
 
 ---
+### Intended Connection Behavior
 {{<mermaid>}}
 sequenceDiagram
-  participant ConnectionPool
-  participant CdiRequest
-  participant StaticRequest
-  StaticRequest->>ConnectionPool: Give me a connection
+  participant CP as ConnectionPool
+  participant CDI as CdiRequest
+  participant STAT as StaticRequest
+  STAT->>CP: Give me a connection
+  CP-->STAT: Here's connectionA
+  CDI->>CP: Give me a connection
+  CP-->CDI: Here's connectionB
 {{</mermaid>}}
 
 

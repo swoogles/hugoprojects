@@ -19,25 +19,44 @@ or, how a single request can generate 800,000 exceptions.
 - {{% fragment %}}Errors in FacilityConfig{{% /fragment %}}
 - {{% fragment %}}Can't get Facility null{{% /fragment %}}
 
+
+
+
+
+
 ---
 {{<mermaid>}}
 graph TB
-subgraph 
+
   subgraph 
-  StaticRequest-->StaticDependencyA
-  StaticRequest-->StaticDependencyB
-  StaticDependencyB-->StaticDbAccess
+    subgraph 
+    StaticRequest-->StaticDependencyA
+    StaticRequest-->StaticDependencyB
+    StaticDependencyB-->StaticConfigAccess
+    StaticConfigAccess-->threadLocalConnection
+    StaticConfigAccess-.->threadLocalCdiConnection
   end
 
   subgraph 
-  CdiRequest
-  CdiRequest-->InjectedDependencyA
-  CdiRequest-->InjectedDependencyB
+    CdiRequest
+    CdiRequest-->InjectedDependencyA
+    CdiRequest-->InjectedDependencyB
   end
-  InjectedDependencyB-->StaticDbAccess
-  InjectedDbAccess
+
+  InjectedDependencyB-->StaticConfigAccess
+  InjectedConfigAccess-->threadLocalConnection
 end
 {{</mermaid>}}
+
+
+
+
+
+
+
+
+---
+Junk drawer from here on out.
 
 ---
 {{<mermaid>}}

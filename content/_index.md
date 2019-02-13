@@ -55,6 +55,16 @@ graph TB
 end
 {{</mermaid>}}
 
+---
+{{<mermaid>}}
+graph TB
+  CensusResource-->Encounters
+  Encounters-->GenericSharingLogic
+  GenericSharingLogic-->FacilityConsentLogic
+  FacilityConsentLogic-->FacilityCategories
+  FacilityCategories-->FacilityConfigService
+  FacilityConfigService-->threadLocalSession
+{{</mermaid>}}
 
 
 ---
@@ -62,7 +72,7 @@ end
 {{<mermaid>}}
 sequenceDiagram
   participant CP as ConnectionPool
-  participant CDI as CdiRequest
+ participant CDI as CdiRequest
   participant STAT as StaticRequest
   STAT->>CP: Give me a connection
   CP-->>STAT: Here's connectionA
@@ -77,10 +87,55 @@ sequenceDiagram
   deactivate CDI
 {{</mermaid>}}
 
+---
+### Actual, Bad Categorizer Behavior
+{{<mermaid>}}
+sequenceDiagram
+  participant CDI as CdiRequest
+  participant CC as CDICategorizer
+  participant STAT as StaticRequest
+  participant CAT as StaticCategorizer
 
+  activate CAT
 
+  STAT->>CAT: Categorize this
+  activate STAT
+  CAT-->>STAT: Categorized
+  deactivate STAT
 
+  Note over CC: Never Used!
+  CDI->>CAT: Categorize this
+  activate CDI
+  CAT-->>CDI: Categorized
+  deactivate CAT
+  deactivate CDI
+  Note right of CAT: CDI kills instance
 
+  STAT->>CAT: Categorize this
+  activate STAT
+  CAT-->>STAT: NPE
+  deactivate STAT
+
+  CDI->>CAT: Categorize this
+  activate CDI
+  CAT-->>CDI: NPE
+  deactivate CDI
+{{</mermaid>}}
+
+---
+### Static Categorizer Handling
+{{<mermaid>}}
+sequenceDiagram
+  participant CDI as CdiRequest
+  participant STAT as StaticRequest
+  participant CAT as StaticCategorizer
+  STAT->>CAT: Categorize this
+  activate CAT
+  CAT-->>STAT: Categorized
+  CDI->>CAT: Categorize this
+  CAT-->>CDI: Categorized
+  deactivate CAT
+{{</mermaid>}}
 
 ---
 Junk drawer from here on out.

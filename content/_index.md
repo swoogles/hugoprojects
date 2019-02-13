@@ -127,23 +127,11 @@ end
 {{</mermaid>}}
 
 ---
-{{<mermaid>}}
-graph TB
-  CensusResource-->Encounters
-  Encounters-->GenericSharingLogic
-  GenericSharingLogic-->FacilityConsentLogic
-  FacilityConsentLogic-->FacilityCategories
-  FacilityCategories-->FacilityConfigService
-  FacilityConfigService-->threadLocalSession
-{{</mermaid>}}
-
-
----
 ### Intended Connection Behavior
 {{<mermaid>}}
 sequenceDiagram
   participant CP as ConnectionPool
- participant CDI as CdiRequest
+  participant CDI as CdiRequest
   participant STAT as StaticRequest
   STAT->>CP: Give me a connection
   CP-->>STAT: Here's connectionA

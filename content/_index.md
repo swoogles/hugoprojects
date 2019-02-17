@@ -165,6 +165,55 @@ sequenceDiagram
 Junk drawer from here on out.
 
 ---
+# Attempt #2
+
+---
+{{% section %}}
+# Deploying
+
+---
+### No immediate failures.
+
+---
+### Need to rollback for a different, unrelated issue.
+
+---
+### "Well at least it ran cleanly before the rollback!"
+
+---
+### "The load on the web monoliths is skyrocketing" - Doug
+
+{{% /section %}}
+
+---
+# Predicate-ment
+<pre>
+<code>
+List<Categorized> unfilteredItems;
+
+Predicate<Categorized> requiresPermission =
+  (entity) -> 
+    logic.sensitiveFields(unfilteredItems).matches(entity);
+
+return 
+  unfilteredItems
+    .filter(requiresPermission);
+
+
+</code>
+</pre>
+
+---
+{{% section %}}
+# Final Contributors
+
+---
+### Can't get Facility null
+
+{{% /section %}}
+
+
+---
 ### Sequence Diagram Junk
 {{<mermaid>}}
 sequenceDiagram

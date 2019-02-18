@@ -231,19 +231,13 @@ for numberOfItems in range(1, 10, 1):
 ### 1,999,400,059,998 Database Calls
 
 <h3>
-{{% fragment %}} Time to print stacktraces {{% /fragment %}}
+{{% fragment %}} 10 microseconds per stacktrace {{% /fragment %}}
 </h3>
 <h3>
-{{% fragment %}} DB Calls * timePerStackTraceLog{{% /fragment %}}
+{{% fragment %}} ~230 days{{% /fragment %}}
 </h3>
 
----
 {{% /section %}}
-
-<p>
-{{% fragment %}}9999: 1,999,400,059,998{{% /fragment %}}
-</p>
-
 
 ---
 # Predica(te)ment

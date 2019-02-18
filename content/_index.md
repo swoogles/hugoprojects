@@ -8,9 +8,11 @@ or, how a single request can generate 800,000 exceptions.
 
 ---
 ## Troubling Symptoms
-- {{% fragment %}}DB Degradation{{% /fragment %}}
-- {{% fragment %}}Ram Exhaustion{{% /fragment %}}
-- {{% fragment %}}Full Hard Drives!{{% /fragment %}}
+<ul>
+{{% fragment %}}<li> Database Degradation </li>{{% /fragment %}}
+{{% fragment %}}<li> Out of memory errors! </li>{{% /fragment %}}
+{{% fragment %}}<li> The hard drives are full!? </li>{{% /fragment %}}
+</ul>
 
 
 ---
@@ -147,38 +149,23 @@ sequenceDiagram
 {{</mermaid>}}
 
 ---
-### Static Categorizer Handling
-{{<mermaid>}}
-sequenceDiagram
-  participant CDI as CdiRequest
-  participant STAT as StaticRequest
-  participant CAT as StaticCategorizer
-  STAT->>CAT: Categorize this
-  activate CAT
-  CAT-->>STAT: Categorized
-  CDI->>CAT: Categorize this
-  CAT-->>CDI: Categorized
-  deactivate CAT
-{{</mermaid>}}
-
----
-Junk drawer from here on out.
-
----
 # Attempt #2
 
 ---
 {{% section %}}
 # Deploying
+{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
 
 ---
 ### No immediate failures.
+{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
 
 ---
 ### Need to rollback for a different, unrelated issue.
 
 ---
 ### "Well at least it ran cleanly before the rollback!"
+{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
 
 ---
 ### "The load on the web monoliths is skyrocketing" - Doug
@@ -186,12 +173,106 @@ Junk drawer from here on out.
 {{% /section %}}
 
 ---
+# The Actual Problem
+
+---
+### Number of logs
+<pre>
+<code>
+
+for numberOfItems in range(1, 10, 1):
+  print(str(numberOfItems) + ": "
+    + str(2 * (numberOfItems * numberOfItems * numberOfItems)))
+
+</code>
+</pre>
+<pre>
+<code>
+
+1: 2
+2: 16
+3: 54
+4: 128
+5: 250
+
+</code>
+</pre>
+
+---
+### The numbers take flight.
+<p>
+{{% fragment %}}10:   2,000{{% /fragment %}}
+</p>
+<p>
+{{% fragment %}}100:  2,000,000{{% /fragment %}}
+</p>
+<p>
+{{% fragment %}}1000: 2,000,000,000{{% /fragment %}}
+</p>
+<p>
+{{% fragment %}}5000: 250,000,000,000{{% /fragment %}}
+</p>
+
+<p>
+{{% fragment %}}9999: 1,999,400,059,998{{% /fragment %}}
+</p>
+
+---
+{{% section %}}
+### The numbers take flight.
+---
+### 10 Visits
+### 2,000 Database Calls
+
+---
+### 100 Visits
+### 2,000,000 Database Calls
+
+---
+### 1000 Visits
+### 2,000,000,000 Database Calls
+
+---
+### 5000 Visits
+### 250,000,000,000 Database Calls
+
+<h3>
+{{% fragment %}} Number of humans that have ever lived{{% /fragment %}}
+</h3>
+<h3>
+{{% fragment %}} 107,000,000,000{{% /fragment %}}
+</h3>
+
+
+---
+### 9999 Visits
+### 1,999,400,059,998 Database Calls
+
+<h3>
+{{% fragment %}} Calls take 1/10th of a millisecond {{% /fragment %}}
+</h3>
+<h3>
+{{% fragment %}} 100199940005.9998 .1*milliseconds {{% /fragment %}}
+</h3>
+1999400059998 * (.0001)
+199940005.9998
+
+
+---
+{{% /section %}}
+
+<p>
+{{% fragment %}}9999: 1,999,400,059,998{{% /fragment %}}
+</p>
+
+
+---
 # Predicate-ment
 <pre>
 <code>
-List<Categorized> unfilteredItems;
+List&ltEntity&gt unfilteredItems;
 
-Predicate<Categorized> requiresPermission =
+Predicate&ltEntity&gt requiresPermission =
   (entity) -> 
     logic.sensitiveFields(unfilteredItems).matches(entity);
 
@@ -199,9 +280,31 @@ return
   unfilteredItems
     .filter(requiresPermission);
 
+</code>
+</pre>
+
+---
+# Predicate-ment
+<pre>
+<code>
+Predicate&ltEntity&gt requiresPermission =
+  (entity) -> 
+    logic.sensitiveFields(unfilteredItems).matches(entity);
 
 </code>
 </pre>
+
+---
+# Predicate-ment
+<pre>
+<code>
+Predicate&ltEntity&gt requiresPermission =
+    logic.sensitiveFields(unfilteredItems)::matches;
+
+</code>
+</pre>
+
+
 
 ---
 {{% section %}}
@@ -212,14 +315,9 @@ return
 
 {{% /section %}}
 
-
 ---
-### Sequence Diagram Junk
-{{<mermaid>}}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-{{</mermaid>}}
+Junk drawer from here on out.
+
 
 ---
 {{<mermaid>}}

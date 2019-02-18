@@ -199,25 +199,6 @@ for numberOfItems in range(1, 10, 1):
 </pre>
 
 ---
-### The numbers take flight.
-<p>
-{{% fragment %}}10:   2,000{{% /fragment %}}
-</p>
-<p>
-{{% fragment %}}100:  2,000,000{{% /fragment %}}
-</p>
-<p>
-{{% fragment %}}1000: 2,000,000,000{{% /fragment %}}
-</p>
-<p>
-{{% fragment %}}5000: 250,000,000,000{{% /fragment %}}
-</p>
-
-<p>
-{{% fragment %}}9999: 1,999,400,059,998{{% /fragment %}}
-</p>
-
----
 {{% section %}}
 ### The numbers take flight.
 ---
@@ -233,11 +214,12 @@ for numberOfItems in range(1, 10, 1):
 ### 2,000,000,000 Database Calls
 
 ---
-### 5000 Visits
-### 250,000,000,000 Database Calls
+### DB queries for 5000 Visits
+### 250,000,000,000
+<br>
 
 <h3>
-{{% fragment %}} Number of humans that have ever lived{{% /fragment %}}
+{{% fragment %}} Total number of humans ever{{% /fragment %}}
 </h3>
 <h3>
 {{% fragment %}} 107,000,000,000{{% /fragment %}}
@@ -249,14 +231,11 @@ for numberOfItems in range(1, 10, 1):
 ### 1,999,400,059,998 Database Calls
 
 <h3>
-{{% fragment %}} Calls take 1/10th of a millisecond {{% /fragment %}}
+{{% fragment %}} Time to print stacktraces {{% /fragment %}}
 </h3>
 <h3>
-{{% fragment %}} 100199940005.9998 .1*milliseconds {{% /fragment %}}
+{{% fragment %}} DB Calls * timePerStackTraceLog{{% /fragment %}}
 </h3>
-1999400059998 * (.0001)
-199940005.9998
-
 
 ---
 {{% /section %}}

@@ -157,11 +157,11 @@ sequenceDiagram
 {{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
 
 ---
-### No immediate failures.
+### No immediate failures
 {{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
 
 ---
-### Need to rollback for a different, unrelated issue.
+### Need to rollback for a different, unrelated issue
 
 ---
 ### "Well at least it ran cleanly before the rollback!"
@@ -246,7 +246,7 @@ for numberOfItems in range(1, 10, 1):
 
 
 ---
-# Predicate-ment
+# Predica(te)ment
 <pre>
 <code>
 List&ltEntity&gt unfilteredItems;
@@ -290,7 +290,8 @@ Predicate&ltEntity&gt requiresPermission =
 # Final Contributors
 
 ---
-### Can't get Facility null
+### Swallowed Exceptions
+#### Can't get Facility null
 
 {{% /section %}}
 

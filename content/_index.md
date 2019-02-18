@@ -6,6 +6,7 @@ outputs = ["Reveal"]
 # Static Shock
 or, how a single request can generate 800,000 exceptions.
 
+
 ---
 ## Troubling Symptoms
 <ul>
@@ -199,6 +200,11 @@ for numberOfItems in range(1, 10, 1):
 </pre>
 
 ---
+{{%readfile file="/content/explodingCalls.md" %}}
+
+
+
+---
 {{% section %}}
 ### The numbers take flight.
 ---
@@ -239,43 +245,9 @@ for numberOfItems in range(1, 10, 1):
 
 {{% /section %}}
 
----
-# Predica(te)ment
-<pre>
-<code>
-List&ltEntity&gt unfilteredItems;
 
-Predicate&ltEntity&gt requiresPermission =
-  (entity) -> 
-    logic.sensitiveFields(unfilteredItems).matches(entity);
 
-return 
-  unfilteredItems
-    .filter(requiresPermission);
-
-</code>
-</pre>
-
----
-# Predicate-ment
-<pre>
-<code>
-Predicate&ltEntity&gt requiresPermission =
-  (entity) -> 
-    logic.sensitiveFields(unfilteredItems).matches(entity);
-
-</code>
-</pre>
-
----
-# Predicate-ment
-<pre>
-<code>
-Predicate&ltEntity&gt requiresPermission =
-    logic.sensitiveFields(unfilteredItems)::matches;
-
-</code>
-</pre>
+{{%readfile file="/content/slides/predicateCodeSamples.md" markdown="true"%}}
 
 
 

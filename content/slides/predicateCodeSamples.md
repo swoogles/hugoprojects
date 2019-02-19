@@ -1,14 +1,14 @@
----
 # Predica(te)ment
-    List<Entity> unfilteredItems;
+    List<Entity> allowed(List<Entity> unfilteredItems) {
 
-    Predicate<Entity> requiresPermission =
-      (entity) -> 
-        logic.sensitiveFields(unfilteredItems).matches(entity);
+      Predicate<Entity> requiresPermission =
+        (entity) -> 
+          logic.sensitiveFields(unfilteredItems).matches(entity);
 
-    return 
-      unfilteredItems
-        .filter(requiresPermission);
+      return 
+        unfilteredItems
+          .filter(requiresPermission);
+    }
 
 
 ---

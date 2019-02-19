@@ -6,7 +6,6 @@ outputs = ["Reveal"]
 # Static Shock
 or, how a single request can generate 800,000 exceptions.
 
-
 ---
 ## Troubling Symptoms
 <ul>
@@ -178,26 +177,11 @@ sequenceDiagram
 
 ---
 ### Number of logs
-<pre>
-<code>
-
-for numberOfItems in range(1, 10, 1):
-  print(str(numberOfItems) + ": "
-    + str(2 * (numberOfItems * numberOfItems * numberOfItems)))
-
-</code>
-</pre>
-<pre>
-<code>
-
-1: 2
-2: 16
-3: 54
-4: 128
-5: 250
-
-</code>
-</pre>
+    1: 2
+    2: 16
+    3: 54
+    4: 128
+    5: 250
 
 ---
 {{%readfile file="/content/explodingCalls.md" %}}
@@ -247,7 +231,19 @@ for numberOfItems in range(1, 10, 1):
 
 
 
+---
+{{% section %}}
 {{%readfile file="/content/slides/predicateCodeSamples.md" markdown="true"%}}
+{{% /section %}}
+
+---
+# That's all!
+## {{% fragment %}}...right?{{% /fragment %}}
+
+---
+{{% section %}}
+{{%readfile file="/content/slides/encounterCodeSamples.md" markdown="true"%}}
+{{% /section %}}
 
 
 

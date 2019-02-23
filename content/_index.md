@@ -32,7 +32,8 @@ or, how a single request can generate 800,000 exceptions.
 
 
 ---
-### Actual, Bad Categorizer Behavior
+{{% section %}}
+### Bad Categorizer Behavior
 {{<mermaid>}}
 sequenceDiagram
   participant StaticRequest
@@ -67,7 +68,7 @@ sequenceDiagram
 {{</mermaid>}}
 
 ---
-### Desired Categorizer Behavior(FIX!!)
+### Desired Categorizer Behavior
 {{<mermaid>}}
 sequenceDiagram
   participant StaticRequest
@@ -127,26 +128,8 @@ graph TB
   InjectedConfigAccess-->threadLocalConnection
 end
 {{</mermaid>}}
+{{% /section %}}
 
----
-### Intended Connection Behavior
-{{<mermaid>}}
-sequenceDiagram
-  participant CP as ConnectionPool
-  participant CDI as CdiRequest
-  participant STAT as StaticRequest
-  STAT->>CP: Give me a connection
-  CP-->>STAT: Here's connectionA
-  activate STAT
-  CDI->>CP: Give me a connection
-  CP-->>CDI: Here's connectionB
-  activate CDI
-  CDI-->STAT: Non-conflicting action
-  STAT->>CP: Done with connectionA
-  deactivate STAT
-  CDI->>CP: Done with connectionA
-  deactivate CDI
-{{</mermaid>}}
 
 ---
 # Attempt #2
@@ -184,11 +167,6 @@ sequenceDiagram
     5: 250
 
 ---
-{{%readfile file="/content/explodingCalls.md" %}}
-
-
-
----
 {{% section %}}
 ### The numbers take flight.
 ---
@@ -221,24 +199,20 @@ sequenceDiagram
 ### 1,999,400,059,998 Database Calls
 
 <h3>
-{{% fragment %}} 10 microseconds per stacktrace {{% /fragment %}}
+{{% fragment %}} 1 microsecond per stacktrace {{% /fragment %}}
 </h3>
 <h3>
-{{% fragment %}} ~230 days{{% /fragment %}}
+{{% fragment %}} ~23 days{{% /fragment %}}
 </h3>
 
 {{% /section %}}
-
-
 
 ---
 {{% section %}}
 {{%readfile file="/content/slides/predicateCodeSamples.md" markdown="true"%}}
 {{% /section %}}
 
----
-# That's all!
-## {{% fragment %}}...right?{{% /fragment %}}
+
 
 ---
 {{% section %}}
@@ -246,16 +220,19 @@ sequenceDiagram
 {{% /section %}}
 
 
+---
+# But
+<ul>
+{{% fragment %}}<li> Why was it so hard to find?</li>{{% /fragment %}}
+{{% fragment %}}<li> How was it able to kill entire machines?</li>{{% /fragment %}}
+{{% fragment %}}<li> Why didn't the existing code fail?</li>{{% /fragment %}}
+</ul>
 
 ---
 {{% section %}}
-# Final Contributors
-
----
-### Swallowed Exceptions
-#### Can't get Facility null
-
+{{%readfile file="/content/slides/swallowedExceptions.md" markdown="true"%}}
 {{% /section %}}
+
 
 ---
 Junk drawer from here on out.

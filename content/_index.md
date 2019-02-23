@@ -156,7 +156,7 @@ end
 {{% /section %}}
 
 ---
-# The Actual Problem
+# Finding The Actual Problem
 
 ---
 ### Number of logs
@@ -208,11 +208,17 @@ end
 {{% /section %}}
 
 ---
+# n^2
+
+
+---
 {{% section %}}
 {{%readfile file="/content/slides/predicateCodeSamples.md" markdown="true"%}}
 {{% /section %}}
 
 
+---
+# n^3
 
 ---
 {{% section %}}
@@ -232,26 +238,4 @@ end
 {{% section %}}
 {{%readfile file="/content/slides/swallowedExceptions.md" markdown="true"%}}
 {{% /section %}}
-
-
----
-Junk drawer from here on out.
-
-
----
-{{<mermaid>}}
-graph LR
-  id1(Start)-->id2(Stop)
-  style id1 fill:#f9f,stroke:#333,stroke-width:8px
-  style id2 fill:#ccf,stroke:#f66,stroke-width:8px,stroke-dasharray: 5, 5
-{{</mermaid>}}
-
----
-{{<mermaid align="left">}}
-graph LR;
-  A[Hard edge] -->|Link text| B(Round edge)
-  B --> C{Decision}
-  C -->|One| D[Result one]
-  C -->|Two| E[Result two]
-{{< /mermaid >}}
 

@@ -1,6 +1,6 @@
 # Don't hide it under a bush-null
 
-    FacilityService get(String facilityId) {
+    Facility get(String facilityId) {
       Facility facility = null;
       try {
         facility = DB.getFacility(facilityId);
@@ -20,7 +20,7 @@
 
     String configByName(Facility facility, String configName) {
           String ret = null;
-          try { // facility is null
+          try {
             facility = DB.getFacility(facility); 
           } catch (Exception ex) {
             log.("Can't get value for facility", facility); 

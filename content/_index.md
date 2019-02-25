@@ -9,7 +9,7 @@ or, how a single request can generate 800,000 exceptions.
 ---
 ## Troubling Symptoms
 <ul>
-{{% fragment %}}<li> Database Degradation </li>{{% /fragment %}}
+{{% fragment %}}<li> Database degradation </li>{{% /fragment %}}
 {{% fragment %}}<li> Out of memory errors! </li>{{% /fragment %}}
 {{% fragment %}}<li> The hard drives are full!? </li>{{% /fragment %}}
 </ul>

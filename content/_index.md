@@ -30,6 +30,15 @@ or, how a single request can generate 800,000 exceptions.
 
 {{% /section %}}
 
+---
+### PUT DOWN IN EXCEPTION SECTION
+{{<mermaid>}}
+graph TB
+  Categorizer-->Facilities;
+  Categorizer-->FacilityConfigLogic;
+  click Facilities callback "I eat Exceptions & return null :D"
+{{</mermaid>}}
+
 
 ---
 {{% section %}}
@@ -129,6 +138,7 @@ graph TB
 end
 {{</mermaid>}}
 {{% /section %}}
+
 
 
 ---
@@ -233,6 +243,7 @@ end
 {{% fragment %}}<li> How was it able to kill entire machines?</li>{{% /fragment %}}
 {{% fragment %}}<li> Why didn't the existing code fail?</li>{{% /fragment %}}
 </ul>
+
 
 ---
 {{% section %}}

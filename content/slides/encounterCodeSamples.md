@@ -3,11 +3,11 @@
 
       Predicate<Entity> otherPredicate = ...
 
-      Predicate<Entity> allowed =
+      Predicate<Entity> primaryRequirement =
         (entity) -> 
           logic.allowed(bulkItems).contains(entity);
 
       return 
         bulkItems
-          .filter(allowed.or(otherPredicate);
+          .filter(primaryRequirement.or(otherPredicate);
     }

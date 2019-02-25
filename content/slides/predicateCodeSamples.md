@@ -12,13 +12,12 @@
 
 
 ---
-# Predicate-ment
+### What I said
     Predicate<Entity> requiresPermission =
       (entity) -> 
         logic.sensitiveFields(unfilteredItems).matches(entity);
 
----
-# Predicate-ment
+### What I meant
     Predicate<Entity> requiresPermission =
         logic.sensitiveFields(unfilteredItems)::matches;
 

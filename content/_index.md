@@ -208,20 +208,20 @@ end
 {{% /section %}}
 
 ---
+{{% section %}}
 # n^2
 
 
 ---
-{{% section %}}
 {{%readfile file="/content/slides/predicateCodeSamples.md" markdown="true"%}}
 {{% /section %}}
 
 
 ---
+{{% section %}}
 # n^3
 
 ---
-{{% section %}}
 {{%readfile file="/content/slides/encounterCodeSamples.md" markdown="true"%}}
 {{% /section %}}
 

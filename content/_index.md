@@ -306,7 +306,15 @@ end
 
 
 ---
+{{% section %}}
 ### Take-aways
-- Don't pass collections into lambdas that will be applied to that same collection.
-- Accept defeat when you encounter a fatal Exception.
-- If you don't have a test that can trigger the original problem, you don't truly know what's wrong.
+
+---
+Don't pass collections into lambdas that will be applied to that same collection.
+
+---
+Accept defeat when you encounter a fatal Exception.
+
+---
+If you don't have a test that can trigger the original problem, you don't truly know what's wrong.
+{{% /section %}}

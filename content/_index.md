@@ -30,15 +30,6 @@ or, how a single request can generate 800,000 exceptions.
 
 {{% /section %}}
 
----
-### PUT DOWN IN EXCEPTION SECTION
-{{<mermaid>}}
-graph TB
-  Categorizer-->Facilities;
-  Categorizer-->FacilityConfigLogic;
-  click Facilities callback "I eat Exceptions & return null :D"
-{{</mermaid>}}
-
 
 ---
 {{% section %}}
@@ -188,9 +179,6 @@ end
 ---
 ![Example image](/images/EncounterRequests3.png)
 
----
-![Example image5](/images/Piggy.png)
-
 {{% /section %}}
 
 ---
@@ -262,3 +250,10 @@ end
 {{% section %}}
 {{%readfile file="/content/slides/swallowedExceptions.md" markdown="true"%}}
 {{% /section %}}
+
+---
+![Example image5](/images/Piggy.png)
+
+---
+![Example image5](/images/KoalaEatingEucalyptus_small.jpg)
+

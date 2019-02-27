@@ -7,13 +7,12 @@
 FacilityLogic
 
     Facility get(String facilityId) {
-      Facility facility = null;
       try {
-        facility = DB.getFacility(facilityId);
+        return DB.getFacility(facilityId);
       } catch (HorribleDbException ex) {
         log.error("Error getting facility");
+        return null; // Everything is totally fine!
       }
-      return facility; // Everything is totally fine!
     }
 
 ---
@@ -21,11 +20,10 @@ FacilityLogic
 FacilityConfigLogic
 
     String configByName(Facility facility, String configName) {
-      String ret = null;
       try { // facility is null!
-        ret = DB.getConfig(facility, configName); 
+        return DB.getConfig(facility, configName); 
       } catch (NullPointException ex) {
         log.("Can't get value for facility", facility); 
+        return null; // Just keep swimming
       } 
-      return ret; // Just keep swimming
     }

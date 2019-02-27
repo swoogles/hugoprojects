@@ -3,7 +3,7 @@ title = "My presentation"
 outputs = ["Reveal"]
 +++
 
-# How many Exceptions can a single request generate?  
+## How many Exceptions can a single request generate?  
 
 ---
 ## Goal:
@@ -229,7 +229,7 @@ end
 
 ---
 {{% section %}}
-### How bad could it be?
+### How bad could it be in practice?
 ---
 #### 10 Visits
 ### 2,000 Queries
@@ -246,6 +246,7 @@ end
 ### 10,000 Visits
 ### 2,000,000,000,000 Queries
 
+<hr>
 <h3>
 {{% fragment %}} 1 microsecond per stacktrace {{% /fragment %}}
 </h3>

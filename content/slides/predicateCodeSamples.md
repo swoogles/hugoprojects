@@ -1,8 +1,8 @@
-### Predicate
-Function that takes a single argument and returns a boolean
+### Predicate&lt;T&gt;
+Function that takes a single T and returns a boolean
 
 ---
-# The Predica(te)ment
+## The Predica(te)ment
     List<Entity> allowed(List<Entity> unfilteredItems) {
 
       Predicate<Entity> requiresPermission =
@@ -11,12 +11,12 @@ Function that takes a single argument and returns a boolean
 
       return 
         unfilteredItems
-          .filter(requiresPermission);
+          .filter(requiresPermission.negate());
     }
 
 ---
-# The Predica(te)ment
-    List<Entity> allowed(List<Entity> unfilteredItems) {
+## The Predica(te)ment
+                 allowed(List<Entity> unfilteredItems) {
 
 
         (entity) -> 

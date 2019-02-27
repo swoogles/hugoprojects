@@ -1,5 +1,8 @@
 # Exception, what Exception?
 
+---
+FacilityLogic
+
     Facility get(String facilityId) {
       Facility facility = null;
       try {
@@ -10,11 +13,8 @@
     }
 
 ---
-### FacilityConfigLogic
 
-    Optional<Boolean> get(String facilityId, String configName) {
-        calls configByName(facilityId, configName);
-    }
+FacilityConfigLogic
 
     String configByName(Facility facility, String configName) {
       String ret = null;

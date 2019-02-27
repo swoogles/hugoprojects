@@ -3,8 +3,10 @@ title = "My presentation"
 outputs = ["Reveal"]
 +++
 
-# Static Shock
-or, how a single request can generate 800,000 exceptions.
+# How many Exceptions can a single request generate?  
+
+---
+# Attempt #1
 
 ---
 ## Troubling Symptoms
@@ -33,6 +35,9 @@ or, how a single request can generate 800,000 exceptions.
 
 ---
 {{% section %}}
+### The Rabbit Hole
+
+---
 ### Bad Categorizer Behavior
 {{<mermaid>}}
 sequenceDiagram
@@ -128,6 +133,9 @@ graph TB
   InjectedConfigAccess-->threadLocalConnection
 end
 {{</mermaid>}}
+
+---
+### But forget all that!
 {{% /section %}}
 
 
@@ -159,12 +167,17 @@ end
 # The Actual Problem
 
 ---
-### Number of logs
-    1: 2
-    2: 4
-    3: 27
-    4: ~100
-    5: ~250
+{{% section %}}
+### After adding some logging...
+
+---
+### DB Activities when loading Visit page
+    1 visit :   2 DB queries
+    2 visits:  4 DB queries
+    3 visits:  27 DB queries
+    4 visits: ~100 DB queries
+    5 visits: ~250 DB queries
+{{% /section %}}
 
 ---
 {{% section %}}
@@ -252,8 +265,18 @@ end
 {{% /section %}}
 
 ---
+{{% section %}}
+# Is your code acting like a pig?
+
+---
 ![Example image5](/images/Piggy.png)
 
 ---
+# Be more like a Koala!
+
+---
 ![Example image5](/images/KoalaEatingEucalyptus_small.jpg)
+#### Die when you eat the wrong thing!
+
+{{% /section %}}
 

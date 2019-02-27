@@ -150,8 +150,7 @@ end
 {{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
 
 ---
-### No immediate failures
-{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}{{% fragment %}}.{{% /fragment %}}
+### No immediate failures!
 
 ---
 ### Need to rollback for a different, unrelated issue
@@ -166,47 +165,61 @@ end
 {{% /section %}}
 
 ---
-# Finding The Actual Problem
+# The Actual Problem
 
 ---
 ### Number of logs
     1: 2
-    2: 16
-    3: 54
-    4: 128
-    5: 250
+    2: 4
+    3: 27
+    4: ~100
+    5: ~250
 
 ---
 {{% section %}}
-### The numbers take flight.
+# Divergent Expectations
+
 ---
-### 10 Visits
+![Example image](/images/EncounterRequests1.png)
+
+---
+![Example image](/images/EncounterRequests2.png)
+
+---
+![Example image](/images/EncounterRequests3.png)
+
+---
+![Example image5](/images/Piggy.png)
+
+{{% /section %}}
+
+---
+{{% section %}}
+### How bad could it be?
+---
+#### 10 Visits
 ### 2,000 Database Calls
 
 ---
-### 100 Visits
+#### 100 Visits
 ### 2,000,000 Database Calls
 
 ---
-### 1000 Visits
-### 2,000,000,000 Database Calls
-
----
-### DB queries for 5000 Visits
+#### DB queries for 5000 Visits
 ### 250,000,000,000
 <br>
 
-<h3>
+<h4>
 {{% fragment %}} Total number of humans ever{{% /fragment %}}
-</h3>
+</h4>
 <h3>
 {{% fragment %}} 107,000,000,000{{% /fragment %}}
 </h3>
 
 
 ---
-### 9999 Visits
-### 1,999,400,059,998 Database Calls
+### 10,000 Visits
+### 2,000,000,000,000 Database Calls
 
 <h3>
 {{% fragment %}} 1 microsecond per stacktrace {{% /fragment %}}
@@ -249,4 +262,3 @@ end
 {{% section %}}
 {{%readfile file="/content/slides/swallowedExceptions.md" markdown="true"%}}
 {{% /section %}}
-

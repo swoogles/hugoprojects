@@ -1,6 +1,9 @@
 # Exception, what Exception?
 
 ---
+2 methods below my code queried the DB
+
+---
 FacilityLogic
 
     Facility get(String facilityId) {
@@ -8,6 +11,7 @@ FacilityLogic
       try {
         facility = DB.getFacility(facilityId);
       } catch (HorribleDbException ex) {
+        log.error("Error getting facility");
       }
       return facility; // Everything is totally fine!
     }
@@ -18,9 +22,9 @@ FacilityConfigLogic
 
     String configByName(Facility facility, String configName) {
       String ret = null;
-      try {
+      try { // facility is null!
         ret = DB.getConfig(facility, configName); 
-      } catch (Exception ex) {
+      } catch (NullPointException ex) {
         log.("Can't get value for facility", facility); 
       } 
       return ret; // Just keep swimming

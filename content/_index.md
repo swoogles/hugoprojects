@@ -6,6 +6,10 @@ outputs = ["Reveal"]
 # How many Exceptions can a single request generate?  
 
 ---
+## Goal:
+#### Filter facility visits returned by Census endpoint.
+
+---
 # Attempt #1
 
 ---
@@ -25,52 +29,33 @@ outputs = ["Reveal"]
 ### "I see something about Consent" - Austin
 
 ---
-### Errors in FacilityConfig
+### Errors in Facility Config
 
 ---
 ### Can't get Facility null
+
+---
+### This connection is closed.
+
+---
+### Transaction cannot proceed: STATUS ROLLBACK
+
+---
+### Abort of action invoked while multiple threads active within it.
 
 {{% /section %}}
 
 
 ---
 {{% section %}}
-### The Rabbit Hole
+### The CDI Rabbit Hole
 
 ---
-### Bad Categorizer Behavior
-{{<mermaid>}}
-sequenceDiagram
-  participant StaticRequest
-  participant StaticCategorizer
-  participant CDICategorizer
-  participant CdiRequest
+### Hypothesis
+#### Something is being improperly shared between CDI and Static classes!
 
-  activate StaticCategorizer
-
-  StaticRequest->>StaticCategorizer: Categorize this
-  activate StaticRequest
-  StaticCategorizer-->>StaticRequest: Categorized
-  deactivate StaticRequest
-
-  Note over CDICategorizer: Never Used!
-  CdiRequest->>StaticCategorizer: Categorize this
-  activate CdiRequest
-  StaticCategorizer-->>CdiRequest: Categorized
-  deactivate StaticCategorizer
-  deactivate CdiRequest
-  Note left of StaticCategorizer: CDI cleanup
-
-  StaticRequest->>StaticCategorizer: Categorize this
-  activate StaticRequest
-  StaticCategorizer-->>StaticRequest: NPE
-  deactivate StaticRequest
-
-  CdiRequest->>StaticCategorizer: Categorize this
-  activate CdiRequest
-  StaticCategorizer-->>CdiRequest: NPE
-  deactivate CdiRequest
-{{</mermaid>}}
+---
+### We wanted it to work like this:
 
 ---
 ### Desired Categorizer Behavior
@@ -108,6 +93,47 @@ sequenceDiagram
   deactivate CDICategorizer
 {{</mermaid>}}
 
+---
+### But instead it worked like this:
+
+
+---
+### Bad Categorizer Behavior
+{{<mermaid>}}
+sequenceDiagram
+  participant StaticRequest
+  participant StaticCategorizer
+  participant CDICategorizer
+  participant CdiRequest
+
+  activate StaticCategorizer
+
+  StaticRequest->>StaticCategorizer: Categorize this
+  activate StaticRequest
+  StaticCategorizer-->>StaticRequest: Categorized
+  deactivate StaticRequest
+
+  Note over CDICategorizer: Never Used!
+  CdiRequest->>StaticCategorizer: Categorize this
+  activate CdiRequest
+  StaticCategorizer-->>CdiRequest: Categorized
+  deactivate StaticCategorizer
+  deactivate CdiRequest
+  Note left of StaticCategorizer: CDI cleanup
+
+  StaticRequest->>StaticCategorizer: Categorize this
+  activate StaticRequest
+  StaticCategorizer-->>StaticRequest: NPE
+  deactivate StaticRequest
+
+  CdiRequest->>StaticCategorizer: Categorize this
+  activate CdiRequest
+  StaticCategorizer-->>CdiRequest: NPE
+  deactivate CdiRequest
+{{</mermaid>}}
+
+---
+### Because the dependencies looked like this:
 
 ---
 {{<mermaid>}}
@@ -171,12 +197,19 @@ end
 ### After adding some logging...
 
 ---
-### DB Activities when loading Visit page
-    1 visit :   2 DB queries
+### DB Activity on Census page
+    1 visit :  2 DB queries
+
     2 visits:  4 DB queries
+
     3 visits:  27 DB queries
+
     4 visits: ~100 DB queries
+
     5 visits: ~250 DB queries
+
+---
+#### Without my code, logs reduced, but were still very active.
 {{% /section %}}
 
 ---
@@ -199,28 +232,19 @@ end
 ### How bad could it be?
 ---
 #### 10 Visits
-### 2,000 Database Calls
+### 2,000 Queries
 
 ---
 #### 100 Visits
-### 2,000,000 Database Calls
+### 2,000,000 Queries
 
 ---
-#### DB queries for 5000 Visits
-### 250,000,000,000
-<br>
-
-<h4>
-{{% fragment %}} Total number of humans ever{{% /fragment %}}
-</h4>
-<h3>
-{{% fragment %}} 107,000,000,000{{% /fragment %}}
-</h3>
-
+#### 5000 Visits
+### 250,000,000,000 Queries
 
 ---
 ### 10,000 Visits
-### 2,000,000,000,000 Database Calls
+### 2,000,000,000,000 Queries
 
 <h3>
 {{% fragment %}} 1 microsecond per stacktrace {{% /fragment %}}
@@ -272,11 +296,17 @@ end
 ![Example image5](/images/Piggy.png)
 
 ---
-# Be more like a Koala!
+#### Be more like a Koala
+![Example image5](/images/KoalaEatingEucalyptus_small.jpg)
 
 ---
-![Example image5](/images/KoalaEatingEucalyptus_small.jpg)
 #### Die when you eat the wrong thing!
 
 {{% /section %}}
 
+
+---
+### Take-aways
+- Don't pass collections into lambdas that will be applied to that same collection.
+- Accept defeat when you encounter a fatal Exception.
+- If you don't have a test that can trigger the original problem, you don't truly know what's wrong.

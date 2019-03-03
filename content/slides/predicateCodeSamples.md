@@ -3,6 +3,18 @@ Function that takes a single T and returns a boolean
 
 ---
 ## The Predica(te)ment
+    List<Entity> unfilteredItems;
+
+    Predicate<Entity> requiresPermission =
+      (entity) -> 
+        logic.sensitiveFields(unfilteredItems).matches(entity);
+
+    List<Entity> privateData  =
+        unfilteredItems
+          .filter(requiresPermission);
+
+---
+## The Predica(te)ment
     List<Entity> privateData(List<Entity> unfilteredItems) {
 
       Predicate<Entity> requiresPermission =

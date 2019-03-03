@@ -3,7 +3,7 @@ Function that takes a single T and returns a boolean
 
 ---
 ## The Predica(te)ment
-    List<Entity> allowed(List<Entity> unfilteredItems) {
+    List<Entity> privateData(List<Entity> unfilteredItems) {
 
       Predicate<Entity> requiresPermission =
         (entity) -> 
@@ -11,12 +11,12 @@ Function that takes a single T and returns a boolean
 
       return 
         unfilteredItems
-          .filter(requiresPermission.negate());
+          .filter(requiresPermission);
     }
 
 ---
 ## The Predica(te)ment
-                 allowed(List<Entity> unfilteredItems) {
+                 privateData(List<Entity> unfilteredItems) {
 
 
         (entity) -> 

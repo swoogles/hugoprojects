@@ -1,5 +1,5 @@
 +++
-title = "FP in Java 8"
+title = "Types of Tests"
 outputs = ["Reveal"]
 +++
 

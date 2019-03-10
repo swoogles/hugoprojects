@@ -1,6 +1,16 @@
 +++
 +++
 
+# But
+<ul>
+{{% fragment %}}<li> Why was it so hard to find?</li>{{% /fragment %}}
+{{% fragment %}}<li> How was it able to kill entire machines?</li>{{% /fragment %}}
+{{% fragment %}}<li> Why didn't the existing code fail?</li>{{% /fragment %}}
+</ul>
+
+
+
+---
 {{% section %}}
 # Exception, what Exception?
 

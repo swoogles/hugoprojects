@@ -1,3 +1,11 @@
++++
++++
+
+{{% section %}}
+# n^2
+
+
+---
 ### Predicate&lt;T&gt;
 Function that takes a single T and returns a boolean
 
@@ -70,4 +78,43 @@ Call sensitiveFields once. Use it for all entities.
     Predicate<Entity> requiresPermission =
       (entity) -> 
         validator.matches(entity);
+
+{{% /section %}}
+
+
+---
+{{% section %}}
+# n^3
+
+---
+## Calling code
+    List<Entity> endpoint(List<Entity> bulkItems) {
+
+      Predicate<Entity> otherPredicate = ...
+
+      Predicate<Entity> primaryRequirement =
+        (entity) -> 
+          logic.allowed(bulkItems).contains(entity);
+
+      return 
+        bulkItems
+          .filter(primaryRequirement.or(otherPredicate);
+    }
+
+---
+## Calling code
+                 endpoint(List<Entity> bulkItems) {
+
+
+
+
+        (entity) -> 
+          logic.allowed(bulkItems)
+
+
+
+
+    }
+{{% /section %}}
+
 

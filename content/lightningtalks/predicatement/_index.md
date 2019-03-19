@@ -103,8 +103,8 @@ Determine sensitive Fields for each item. Use once.
 
 ### What I said
     Predicate<HospitalVisit> requiresPermission =
-      (entity) ->
-        logic.sensitiveFields(unfilteredItems).matches(entity);
+      (visit) ->
+        logic.sensitiveFields(unfilteredItems).matches(visit);
 
 ---
 ### What I meant

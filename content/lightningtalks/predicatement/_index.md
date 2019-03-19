@@ -91,6 +91,10 @@ Add a new filter to hospital visits returned by an API.
 
 ---
 {{% section %}}
+### Predicate&lt;T&gt;
+"Take a T and return true or false"
+
+---
 
 ### What I said
 Determine sensitive Fields for each item. Use once.

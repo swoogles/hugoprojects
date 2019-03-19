@@ -139,3 +139,6 @@ Determine sensitive Fields once. Use for all entities.
 {{% /section %}}
 
 
+---
+## Hosted at:
+www.billdingthings.com/lightningtalks/predicatement

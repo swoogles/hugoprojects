@@ -2,9 +2,6 @@
 title = "Predicates Gone Wild"
 outputs = ["Reveal"]
 +++
-
-
----
 ## How many Exceptions can a single request generate?
 
 ---
@@ -26,7 +23,7 @@ Add a new filter to hospital visits returned by an API.
 </ul>
 
 ---
-# Tracking down the the Problem
+# Tracking down the the Problem!
 
 ---
 {{% section %}}
@@ -44,6 +41,9 @@ Add a new filter to hospital visits returned by an API.
 
     5 visits: ~250 DB queries
 
+---
+# 2n^3
+
 {{% /section %}}
 
 ---
@@ -51,12 +51,15 @@ Add a new filter to hospital visits returned by an API.
 # Divergent Expectations
 
 ---
+### Desired
 ![Example image](/images/EncounterRequests1.png)
 
 ---
+### Deployed/Tolerated
 ![Example image](/images/EncounterRequests2.png)
 
 ---
+### Death
 ![Example image](/images/EncounterRequests3.png)
 
 {{% /section %}}
@@ -73,10 +76,6 @@ Add a new filter to hospital visits returned by an API.
 ### 2,000,000 Queries
 
 ---
-#### 5000 Visits
-### 250,000,000,000 Queries
-
----
 ### 10,000 Visits
 ### 2,000,000,000,000 Queries
 
@@ -89,4 +88,50 @@ Add a new filter to hospital visits returned by an API.
 </h3>
 
 {{% /section %}}
+
+---
+{{% section %}}
+
+### What I said
+Determine sensitive Fields for each item. Use once.
+
+<br>
+
+### What I said
+    Predicate<HospitalVisit> requiresPermission =
+      (entity) ->
+        logic.sensitiveFields(unfilteredItems).matches(entity);
+
+---
+### What I meant
+Determine sensitive Fields once. Use for all entities.
+
+<br>
+
+### What I meant
+    Predicate<HospitalVisit> requiresPermission =
+        logic.sensitiveFields(unfilteredItems)::matches;
+
+
+
+
+
+{{% /section %}}
+
+---
+{{% section %}}
+# Is your code acting like a pig?
+
+---
+![Example image5](/images/Piggy.png)
+
+---
+#### Be more like a Koala
+![Example image5](/images/KoalaEatingEucalyptus_small.jpg)
+
+---
+#### Die when you eat the wrong thing!
+
+{{% /section %}}
+
 

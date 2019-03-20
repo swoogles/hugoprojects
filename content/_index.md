@@ -9,3 +9,5 @@ outputs = ["Reveal"]
 [Predica(te)ment]({{< ref "predicatesGoneWild/_index.md" >}})
 
 [Types of Tests]({{< ref "tttt/_index.md" >}})
+
+[Some lambda?]({{< ref "/.netlify/functions/hello-lambda" >}})

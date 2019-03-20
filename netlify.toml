@@ -1,7 +1,7 @@
 [build]
 command = "make build"
 functions = "functions"
-publish = "site"
+publish = "public"
 
 [build.environment]
 HUGO_VERSION = "0.47"

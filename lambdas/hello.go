@@ -6,6 +6,8 @@ import (
 )
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	const name, age = "Kim", 22
+	fmt.Println(name, "is", age, "years old.")
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       "Hello, World",

@@ -10,4 +10,4 @@ outputs = ["Reveal"]
 
 [Types of Tests]({{< ref "tttt/_index.md" >}})
 
-[Some lambda?]({{< ref "functions/hello-lambda" >}})
+[Some lambda?]({{< ref "/functions/hello-lambda" >}})

@@ -1,11 +1,7 @@
 [build]
 command = "make build"
 functions = "lambdas"
-publish = "site"
-
-[build]
 publish = "public"
-command = "hugo"
 
 [build.environment]
 HUGO_VERSION = "0.47"

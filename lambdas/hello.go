@@ -40,7 +40,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     client := &http.Client{}
 
     req2, _ := http.NewRequest("GET", "https://api.github.com/repos/swoogles/Physics/commits", nil)
-    req2.SetBasicAuth("swoogles", "59db08d447e16bd42f072272cc23babffab9090c")
+    req2.SetBasicAuth("swoogles", "01fd15407121c063f75f086f21440095e753c869")
 
     resp2, _ := client.Do(req2)
     defer resp2.Body.Close()

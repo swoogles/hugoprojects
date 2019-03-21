@@ -37,17 +37,7 @@ func getJson(url string, target interface{}) error {
 
 func main() {
     fmt.Println("hello world")
-	// Make the handler available for Remote Procedure Call by AWS Lambda
-		// phone := "14158586273"
-    	// QueryEscape escapes the phone string so
-    	// it can be safely placed inside a URL query
-    	// safePhone := url.QueryEscape(phone)
-
-    	// url := fmt.Sprintf("/orgs/swoogles/repos", safePhone)
-    	// url := fmt.Sprintf("https://api.github.com/repos/swoogles/Physics/commits")
-
-        	client := &http.Client{}
-
+        client := &http.Client{}
 
         req2, _ := http.NewRequest("GET", "https://api.github.com/repos/swoogles/Physics/commits", nil)
         req2.SetBasicAuth("swoogles", "84966102c7b7c430d40e6c0ae372916d83d51506")

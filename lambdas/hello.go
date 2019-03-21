@@ -45,7 +45,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     resp2, _ := client.Do(req2)
     defer resp2.Body.Close()
 
-    val responseHead string = resp2
+    var responseHead string = resp2
     var finalText string = responseHead + "\nThis is live data: \n"
             var commitList2 []GitHubCommit
     json.NewDecoder(resp2.Body).Decode(&commitList2)

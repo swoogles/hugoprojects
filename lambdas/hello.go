@@ -55,7 +55,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     resp3, _ := client.Do(req3)
     defer resp3.Body.Close()
 	var weatherForecast ForeCast
-	json.NewDecoder(resp2.Body).Decode(&weatherForecast)
+	json.NewDecoder(resp3.Body).Decode(&weatherForecast)
 
 
     var darkSkyResponse string = fmt.Sprintf("%b", resp3)

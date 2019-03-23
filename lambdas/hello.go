@@ -37,6 +37,7 @@ func getJson(url string, target interface{}) error {
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	const name, age = "Kim", 22
 	fmt.Println(name, "is", age, "years old.")
+    fmt.println("Dark Sky Key: " + os.Getenv("DARK_SKY_TOKEN")
     client := &http.Client{}
 
     req2, _ := http.NewRequest("GET", "https://api.github.com/repos/swoogles/Physics/commits", nil)

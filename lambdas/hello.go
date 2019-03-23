@@ -3,10 +3,11 @@ package main
 import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-  "fmt"
+    "fmt"
   	"encoding/json"
   	"time"
   	"net/http"
+  	"os"
 )
 
 type SmallCommit struct {

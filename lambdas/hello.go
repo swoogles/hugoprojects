@@ -10,6 +10,10 @@ import (
   	"os"
 )
 
+type ForeCast struct {
+	TimeZone string
+}
+
 type SmallCommit struct {
     Message string
 }
@@ -50,21 +54,25 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     req3, _ := http.NewRequest("GET", "https://api.darksky.net/forecast/bafaa87eb7663d448621f737f6e62ed4/37.8267,-122.4233", nil)
     resp3, _ := client.Do(req3)
     defer resp3.Body.Close()
+	var weatherForecast ForeCast
+	json.NewDecoder(resp2.Body).Decode(&weatherForecast)
+
 
     var darkSkyResponse string = fmt.Sprintf("%b", resp3)
     fmt.Println("Dark Sky Response: " + darkSkyResponse)
 
 
     var responseHead string = fmt.Sprintf("%b", resp2)
-    var finalText string = darkSkyResponse + responseHead + "\nThis is live data: \n"
+    var finalText string = responseHead + "\nThis is live data: \n"
             var commitList2 []GitHubCommit
     json.NewDecoder(resp2.Body).Decode(&commitList2)
                 for i := 0; i < len(commitList2); i++ {
                     finalText += commitList2[i].Sha + " " + commitList2[i].Commit.Message
                 }
+	var weatherText string = darkSkyResponse + "\nThis is live data: \n"
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       finalText,
+		Body:       finalText + weatherText,
 	}, nil
 }
 

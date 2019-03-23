@@ -11,7 +11,7 @@ import (
 )
 
 type ForeCast struct {
-	TimeZone string
+	Timezone string
 }
 
 type SmallCommit struct {

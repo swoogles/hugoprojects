@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	//"github.com/swoogles/hugoprojects/lambdas/weather"
@@ -35,7 +36,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
                     finalText += commitList2[i].Sha + " " + commitList2[i].Commit.Message
                 }
 	*/
-	var weatherText string = "\n\n\nThis is live weather data: \n" + weatherForecast.Currently.Temperature
+	var weatherText string = "\n\n\nThis is live weather data: \n" + fmt.Sprintf("%f", weatherForecast.Currently.Temperature)
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       weatherText,

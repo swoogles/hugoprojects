@@ -8,7 +8,7 @@ import (
   	"time"
   	"net/http"
   	"os"
-	"./weather"
+	"github.com/swoogles/hugoprojects/lambdas/weather"
 )
 
 var myClient = &http.Client{Timeout: 10 * time.Second}

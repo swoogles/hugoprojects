@@ -24,9 +24,7 @@ func getJson(url string, target interface{}) error {
 }
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	const name, age = "Kim", 22
-	fmt.Println(name, "is", age, "years old.")
-    fmt.Println("Dark Sky Key: " + os.Getenv("DARK_SKY_TOKEN"))
+	var darkSkyToken = os.Getenv("DARK_SKY_TOKEN")
     client := &http.Client{}
 
     req2, _ := http.NewRequest("GET", "https://api.github.com/repos/swoogles/Physics/commits", nil)
@@ -35,7 +33,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     resp2, _ := client.Do(req2)
     defer resp2.Body.Close()
 
-    req3, _ := http.NewRequest("GET", "https://api.darksky.net/forecast/bafaa87eb7663d448621f737f6e62ed4/37.8267,-122.4233", nil)
+    req3, _ := http.NewRequest("GET", "https://api.darksky.net/forecast/" + darkSkyToken + "/37.8267,-122.4233", nil)
     resp3, _ := client.Do(req3)
     defer resp3.Body.Close()
 	var weatherForecast weather.ForeCast

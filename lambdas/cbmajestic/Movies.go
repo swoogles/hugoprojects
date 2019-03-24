@@ -1,5 +1,10 @@
 package cbmajestic
 
+type Rating struct {
+	Source string
+	Value string
+}
+
 type Movie struct {
 	Title string
 	Rated string
@@ -8,4 +13,6 @@ type Movie struct {
 	Director string
 	Plot string
 	Poster string
+	Ratings []Rating
 }
+

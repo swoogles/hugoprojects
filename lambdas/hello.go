@@ -33,15 +33,8 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     resp2, _ := client.Do(req2)
     defer resp2.Body.Close()
 
-    req3, _ := http.NewRequest("GET", "https://api.darksky.net/forecast/" + darkSkyToken + "/37.8267,-122.4233", nil)
-    resp3, _ := client.Do(req3)
-    defer resp3.Body.Close()
 	var weatherForecast weather.ForeCast
-	json.NewDecoder(resp3.Body).Decode(&weatherForecast)
-
-
-    var darkSkyResponse string = fmt.Sprintf("%b", resp3)
-    fmt.Println("Dark Sky Response: " + darkSkyResponse)
+    getJson("https://api.darksky.net/forecast/" + darkSkyToken + "/37.8267,-122.4233", weatherForecast)
 
 
     var responseHead string = fmt.Sprintf("%b", resp2)
@@ -51,7 +44,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
                 for i := 0; i < len(commitList2); i++ {
                     finalText += commitList2[i].Sha + " " + commitList2[i].Commit.Message
                 }
-	var weatherText string = darkSkyResponse + "\nThis is live data: \n" + weatherForecast.Timezone
+	var weatherText string = "This is live data: \n" + weatherForecast.Timezone
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       finalText + weatherText,

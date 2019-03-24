@@ -4,7 +4,6 @@ import (
 	// "github.com/aws/aws-lambda-go/events"
 	// "github.com/aws/aws-lambda-go/lambda"
   	"encoding/json"
-  	"fmt"
   	"time"
   	"net/http"
   	//"io/ioutil"
@@ -41,6 +40,7 @@ func getJson(url string, target interface{}) error {
     return json.NewDecoder(r.Body).Decode(target)
 }
 
+/*
 func main() {
     client := &http.Client{}
 
@@ -57,18 +57,6 @@ func main() {
                     finalText += commitList2[i].Sha + "\n    " + commitList2[i].Commit.Message + "\n\n"
                 }
     fmt.Println(finalText)
-
-    req3, _ := http.NewRequest("GET", "https://api.darksky.net/forecast/bafaa87eb7663d448621f737f6e62ed4/37.8267,-122.4233", nil)
-    resp3, _ := client.Do(req3)
-    defer resp3.Body.Close()
-    var weatherForecast ForeCast
-    json.NewDecoder(resp3.Body).Decode(&weatherForecast)
-
-
-    var darkSkyResponse string = fmt.Sprintf("%b", resp3)
-    fmt.Println("Dark Sky Response: " + darkSkyResponse)
-    var weatherText string = darkSkyResponse + "\nThis is live data: " + weatherForecast.Timezone
-    fmt.Print(weatherText)
     /*
     if resp3.StatusCode == http.StatusOK {
         bodyBytes, _ := ioutil.ReadAll(resp3.Body)
@@ -76,4 +64,7 @@ func main() {
         fmt.Println("BodyString: " + bodyString)
     }
     */
+    /*
 }
+
+*/

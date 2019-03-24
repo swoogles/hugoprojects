@@ -21,7 +21,7 @@ func getJson(url string, target interface{}) error {
 	fmt.Println(r)
     defer r.Body.Close()
 
-    return json.NewDecoder(r.Body).Decode(target)
+    return json.NewDecoder(r.Body).Decode(&target)
 }
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {

@@ -8,24 +8,8 @@ import (
   	"time"
   	"net/http"
   	"os"
+	"./weather"
 )
-
-type ForeCast struct {
-	Timezone string
-}
-
-type SmallCommit struct {
-    Message string
-}
-
-type CommitList struct {
-    Commits []GitHubCommit
-}
-
-type GitHubCommit struct {
-    Sha string
-    Commit SmallCommit
-}
 
 var myClient = &http.Client{Timeout: 10 * time.Second}
 
@@ -54,7 +38,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
     req3, _ := http.NewRequest("GET", "https://api.darksky.net/forecast/bafaa87eb7663d448621f737f6e62ed4/37.8267,-122.4233", nil)
     resp3, _ := client.Do(req3)
     defer resp3.Body.Close()
-	var weatherForecast ForeCast
+	var weatherForecast weather.ForeCast
 	json.NewDecoder(resp3.Body).Decode(&weatherForecast)
 
 

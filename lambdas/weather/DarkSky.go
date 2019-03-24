@@ -9,7 +9,12 @@ import (
 )
 
 type DataPoint struct {
+	ApparentTemperature float64
 	Temperature float64
+	Summary string
+	CloudCover float64
+	PrecipIntensity float64
+	PrecipProbability float64
 }
 
 type ForeCast struct {

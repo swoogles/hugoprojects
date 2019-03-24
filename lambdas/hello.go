@@ -36,7 +36,8 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
                     finalText += commitList2[i].Sha + " " + commitList2[i].Commit.Message
                 }
 	*/
-	var weatherText string = "\n\n\nThis is live weather data: \n" + fmt.Sprintf("%f", weatherForecast.Currently.Temperature)
+	out, _ := json.MarshalIndent(weatherForecast, "", "  ")
+	var weatherText string = "\n\n\nThis is live weather data: \n" + string(out)
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       weatherText,

@@ -34,7 +34,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
                     finalText += commitList2[i].Sha + " " + commitList2[i].Commit.Message
                 }
 	*/
-	var weatherText string = "\n\n\nThis is live weather data: \n" + weatherForecast.Timezone
+	var weatherText string = "\n\n\nThis is live weather data: \n" + weatherForecast
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Body:       weatherText,

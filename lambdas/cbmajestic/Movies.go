@@ -30,6 +30,14 @@ type Movie struct {
 func getLordOfTheRingsData() {
 }
 
+func serializeMovie(movie Movie) string {
+	out, err := json.MarshalIndent(movie, "", "  ")
+	if err != nil {
+		panic (err)
+	}
+	return string(out)
+}
+
 var myClient = &http.Client{Timeout: 10 * time.Second}
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
@@ -54,7 +62,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	json.NewDecoder(resp3.Body).Decode(&movie)
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       movie.Title,
+		Body:       serializeMovie(movie),
 	}, nil
 }
 

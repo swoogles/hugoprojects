@@ -1,4 +1,4 @@
-package cbmajestic
+package main
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestGetBasicForecast(t *testing.T) {
+func TestMovieStuff(t *testing.T) {
 
 	var decodedMovie Movie
 	error := json.Unmarshal(json.RawMessage(LordOfTheRingsData()), &decodedMovie)

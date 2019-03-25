@@ -1,4 +1,4 @@
-package cbmajestic
+package main
 
 func LordOfTheRingsData() string {
 

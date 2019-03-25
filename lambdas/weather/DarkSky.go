@@ -30,6 +30,11 @@ type ForeCast struct {
 	Daily TimePeriodData
 }
 
+type GpsCoordinates struct {
+	latitude float64
+	longitude float64
+}
+
 var myClient = &http.Client{Timeout: 10 * time.Second}
 
 //func getForeCastJson(url string) ForeCast {
@@ -44,12 +49,17 @@ func getTestData(url string) ForeCast {
 	return decodedForeCast
 }
 
+func stringOf(coordinates GpsCoordinates) string {
+	return fmt.Sprintf("%f", coordinates.latitude) + "," + fmt.Sprintf("%f",coordinates.longitude)
+}
+
 func GetBasicForecast(darkSkyToken string) ForeCast {
+	coordinates := GpsCoordinates{38.8697, -106.9878}
 	req3, _ := http.NewRequest(
 		"GET",
 		"https://api.darksky.net/forecast/" +
 			darkSkyToken +
-			"/38.8697,-106.9878", nil)
+			"/" + stringOf(coordinates), nil)
 	resp3, error := myClient.Do(req3)
 	if (error != nil) {
 		fmt.Fprintf(os.Stderr, "error: %v\n", error)

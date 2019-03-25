@@ -34,7 +34,7 @@ var myClient = &http.Client{Timeout: 10 * time.Second}
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("Movie things!")
-	var openMoviesDbToken = os.Getenv("DARK_SKY_TOKEN")
+	var openMoviesDbToken = os.Getenv("OPEN_MOVIES_DB_TOKEN")
 	fmt.Println("movieToken:" + openMoviesDbToken)
 
 	guardiansOfTheGalaxy2Url := "http://www.omdbapi.com/?i=tt3896198&apikey=" + openMoviesDbToken
@@ -44,6 +44,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 		nil)
 	resp3, error := myClient.Do(movieRequest)
 	if (error != nil) {
+		fmt.Println(error)
 		fmt.Fprintf(os.Stderr, "error: %v\n", error)
 		os.Exit(1)
 	}

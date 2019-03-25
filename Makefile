@@ -3,3 +3,4 @@ build:
 	mkdir -p functions
 	# go get ./...
 	go build -o functions/hello-lambda  ./lambdas
+	go build -o functions/movies-lambda  ./lambdas/cbmajestic

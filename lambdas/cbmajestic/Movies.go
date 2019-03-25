@@ -28,29 +28,14 @@ type Movie struct {
 
 
 func getLordOfTheRingsData() {
-	/*
-req3, _ := http.NewRequest(
-"GET",
-"https://api.darksky.net/forecast/" +
-darkSkyToken +
-"/" + stringOf(coordinates), nil)
-resp3, error := myClient.Do(req3)
-if (error != nil) {
-fmt.Fprintf(os.Stderr, "error: %v\n", error)
-os.Exit(1)
-}
-
-defer resp3.Body.Close()
-var weatherForecast ForeCast
-json.NewDecoder(resp3.Body).Decode(&weatherForecast)
-return weatherForecast;
-	*/
 }
 
 var myClient = &http.Client{Timeout: 10 * time.Second}
 
 func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	fmt.Println("Movie things!")
 	var openMoviesDbToken = os.Getenv("DARK_SKY_TOKEN")
+	fmt.Println("movieToken:" + openMoviesDbToken)
 
 	guardiansOfTheGalaxy2Url := "http://www.omdbapi.com/?i=tt3896198&apikey=" + openMoviesDbToken
 	movieRequest, _ := http.NewRequest(
@@ -73,6 +58,5 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 }
 
 func main() {
-	fmt.Println("Movie things!")
 	lambda.Start(handler)
 }

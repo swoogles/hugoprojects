@@ -26,6 +26,9 @@ type Movie struct {
 	Ratings []Rating
 }
 
+type FullLineup struct {
+	Movies [] Movie
+}
 
 func getLordOfTheRingsData() {
 }
@@ -73,9 +76,16 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	movieApi := MovieApi{ "https://www.omdbapi.com/?apikey=" + openMoviesDbToken}
 
+	fullLineupData :=
+
+		serializeMovie(movieApi.MovieData("tt4154664")) + "\n" +
+			serializeMovie(movieApi.MovieData("tt2386490")) + "\n" +
+		serializeMovie(movieApi.MovieData("tt6857112"))
+
+
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       serializeMovie(movieApi.MovieData("tt3896198")),
+		Body:       fullLineupData,
 	}, nil
 }
 

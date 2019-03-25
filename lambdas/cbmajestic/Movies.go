@@ -38,14 +38,15 @@ func serializeMovie(movie Movie) string {
 	return string(out)
 }
 
-var myClient = &http.Client{Timeout: 10 * time.Second}
+type MovieApi struct {
+	baseUrl string
+}
+func (e MovieApi) MovieData(movieId string) Movie {
+	//e.baseUrl +
 
-func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	fmt.Println("Movie things!")
-	var openMoviesDbToken = os.Getenv("OPEN_MOVIES_DB_TOKEN")
-	fmt.Println("movieToken:" + openMoviesDbToken)
+	//"https://www.omdbapi.com/?t=captain+marvel&apikey=2fcf7ca6"
 
-	guardiansOfTheGalaxy2Url := "http://www.omdbapi.com/?i=tt3896198&apikey=" + openMoviesDbToken
+	guardiansOfTheGalaxy2Url := e.baseUrl + "&i=" + movieId
 	movieRequest, _ := http.NewRequest(
 		"GET",
 		guardiansOfTheGalaxy2Url,
@@ -60,9 +61,21 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	defer resp3.Body.Close()
 	var movie Movie
 	json.NewDecoder(resp3.Body).Decode(&movie)
+	return movie
+}
+
+var myClient = &http.Client{Timeout: 10 * time.Second}
+
+func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	fmt.Println("Movie things!")
+	var openMoviesDbToken = os.Getenv("OPEN_MOVIES_DB_TOKEN")
+	fmt.Println("movieToken:" + openMoviesDbToken)
+
+	movieApi := MovieApi{ "https://www.omdbapi.com/?apikey=" + openMoviesDbToken}
+
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       serializeMovie(movie),
+		Body:       serializeMovie(movieApi.MovieData("tt3896198")),
 	}, nil
 }
 

@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+)
 
 type Rating struct {
 	Source string
@@ -39,6 +43,14 @@ return weatherForecast;
 	*/
 }
 
+func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	return &events.APIGatewayProxyResponse{
+		StatusCode: 200,
+		Body:       "Movie content!",
+	}, nil
+}
+
 func main() {
 	fmt.Println("Movie things!")
+	lambda.Start(handler)
 }

@@ -31,8 +31,8 @@ type ForeCast struct {
 }
 
 type GpsCoordinates struct {
-	latitude float64
-	longitude float64
+	Latitude float64
+	Longitude float64
 }
 
 var myClient = &http.Client{Timeout: 10 * time.Second}
@@ -50,11 +50,11 @@ func getTestData(url string) ForeCast {
 }
 
 func stringOf(coordinates GpsCoordinates) string {
-	return fmt.Sprintf("%f", coordinates.latitude) + "," + fmt.Sprintf("%f",coordinates.longitude)
+	return fmt.Sprintf("%f", coordinates.Latitude) + "," + fmt.Sprintf("%f",coordinates.Longitude)
 }
 
-func GetBasicForecast(darkSkyToken string) ForeCast {
-	coordinates := GpsCoordinates{38.8697, -106.9878}
+func GetBasicForecast(darkSkyToken string, coordinates GpsCoordinates) ForeCast {
+
 	req3, _ := http.NewRequest(
 		"GET",
 		"https://api.darksky.net/forecast/" +
@@ -72,3 +72,6 @@ func GetBasicForecast(darkSkyToken string) ForeCast {
 	return weatherForecast;
 }
 
+func main() {
+	fmt.Println("This is the weather project!")
+}

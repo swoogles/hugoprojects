@@ -5,5 +5,3 @@ outputs = ["Reveal"]
 
 #### Functional Programming w/ Java 8
 
----
-Another attempt

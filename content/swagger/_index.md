@@ -20,15 +20,13 @@ outputs = ["Reveal"]
     - {{% fragment %}}Parameters{{% /fragment %}}
     - {{% fragment %}}Success/Error return values{{% /fragment %}}
     - {{% fragment %}}Models{{% /fragment %}}
+    - {{% fragment %}}Examples{{% /fragment %}}
 - {{% fragment %}}Achievement: Completely re-implement MedClaims via spec file: $URL_GOES_HERE {{% /fragment %}}
     
 ---
 ### SwaggerUI
-- Only needs an OAS Spec
-- Simple, uniform UI for exploring an API in browser
-- Give examples embedded in docs
-- Human-friendly
-- Achievment: 
+- Turns OAS spec files into browsable UI
+- Achievement: Browse Reports Microservice API via local spec file
 
 ---
 ### Swagger Codegen
@@ -49,5 +47,8 @@ outputs = ["Reveal"]
 - Auto-complete
 
 ---
-###
+### SwaggerHub
+- Ties all of these projects together
+- Source of truth for API interfaces
+- 
 

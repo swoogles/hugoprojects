@@ -47,6 +47,7 @@ Document your APIs
 - {{% fragment %}}Generate client/server stubs from OAS spec{{% /fragment %}}
     - {{% fragment %}} JAXRS, Jersey, RESTEasy, Spring {{% /fragment %}}
     - {{% fragment %}} Typescript/Angular {{% /fragment %}}
+    - {{% fragment %}} Kotlin {{% /fragment %}}
     - {{% fragment %}} No struts support :( {{% /fragment %}}
 - {{% fragment %}}Achievement: Generate MedClaims API that matches *live* implementation{{% /fragment %}}
     {{% fragment %}}with all relevant Servers/Clients[IDE DEMO]{{% /fragment %}}

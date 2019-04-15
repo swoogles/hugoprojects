@@ -15,12 +15,12 @@ outputs = ["Reveal"]
 ---
 ### OpenAPI Specification
 - YAML or JSON
-- Describes all facets of your API
-    - URL
-    - Parameters
-    - Return values
-    - Error values
-    - Models
+- {{% fragment %}}Describes all facets of your API{{% /fragment %}}
+    - {{% fragment %}}URL{{% /fragment %}}
+    - {{% fragment %}}Parameters{{% /fragment %}}
+    - {{% fragment %}}Success/Error return values{{% /fragment %}}
+    - {{% fragment %}}Models{{% /fragment %}}
+- {{% fragment %}}Achievement: Completely re-implement MedClaims via spec file: $URL_GOES_HERE {{% /fragment %}}
     
 ---
 ### SwaggerUI
@@ -28,6 +28,7 @@ outputs = ["Reveal"]
 - Simple, uniform UI for exploring an API in browser
 - Give examples embedded in docs
 - Human-friendly
+- Achievment: 
 
 ---
 ### Swagger Codegen

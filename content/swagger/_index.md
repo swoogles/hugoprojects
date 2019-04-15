@@ -40,7 +40,7 @@ Document your APIs
 ---
 ### 3. SwaggerUI
 - {{% fragment %}}Browser UI for OAS spec files {{% /fragment %}}
-- {{% fragment %}}Achievement: Browse Reports Microservice spec file[BROWSER DEMO]{{% /fragment %}}
+- {{% fragment %}}Achievement: Browse Reports Microservice API[BROWSER DEMO]{{% /fragment %}}
 
 ---
 ### 4. Swagger Codegen
@@ -49,7 +49,7 @@ Document your APIs
     - {{% fragment %}} Typescript/Angular {{% /fragment %}}
     - {{% fragment %}} No struts support :( {{% /fragment %}}
 - {{% fragment %}}Achievement: Generate MedClaims API that matches *live* implementation{{% /fragment %}}
-    {{% fragment %}}with all relevant Server/Client implementations[IDE DEMO]{{% /fragment %}}
+    {{% fragment %}}with all relevant Servers/Clients[IDE DEMO]{{% /fragment %}}
 
 ---
 ### 5. SwaggerHub

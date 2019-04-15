@@ -31,18 +31,21 @@ outputs = ["Reveal"]
 
 ---
 ### Swagger Codegen
-- {{% fragment %}}Generate client stubs from OAS spec{{% /fragment %}}
 - {{% fragment %}}Generate server stubs from OAS spec{{% /fragment %}}
+    - {{% fragment %}} JAXRS {{% /fragment %}}
+    - {{% fragment %}} RESTEasy{{% /fragment %}}
+    - {{% fragment %}} Spring {{% /fragment %}}
+- {{% fragment %}}Generate client stubs from OAS spec{{% /fragment %}}
+    - {{% fragment %}} Typescript/Angular {{% /fragment %}}
+    - {{% fragment %}} No struts support :/ {{% /fragment %}}
 - {{% fragment %}}Really cool{{% /fragment %}}
 - {{% fragment %}}Really powerful{{% /fragment %}}
 
 
 ---
 ### SwaggerEditor
-- Locally or web-based
 - Immediate OAS violation reporting
 - Auto-complete
-- Utilize Codegen
 
 ---
 ###

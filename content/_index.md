@@ -10,3 +10,5 @@ outputs = ["Reveal"]
 
 [Types of Tests]({{< ref "tttt/_index.md" >}})
 
+[Swagger]({{< ref "swagger/_index.md" >}})
+

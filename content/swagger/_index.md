@@ -15,13 +15,16 @@ Document your APIs
 - {{% fragment %}}This distant page will stay in sync as code changes?{{% /fragment %}}
 
 ---
+## Enter Swagger
+
+---
 ### Components
 - OpenAPI Specification (Formerly SwaggerSpec)
-- SwaggerUI
-- SwaggerCodegen
-- SwaggerEditor
 - Gradle Plugin
-- SwaggerHub
+- UI
+- Codegen
+- Editor
+- Hub
 
 ---
 ### OpenAPI Specification
@@ -33,16 +36,15 @@ Document your APIs
     - {{% fragment %}}Models/Entities/DTOs{{% /fragment %}}
     - {{% fragment %}}Examples{{% /fragment %}}
 - {{% fragment %}}Achievement: Full MedClaims description via spec file: [IDE_DEMO] {{% /fragment %}}
+
 ---
 ### Gradle plugin
 - {{% fragment %}}Generate spec files from existing projects{{% /fragment %}}
-- {{% fragment %}}Upload to central API documentation repository{{% /fragment %}}
-- {{% fragment %}}Achievement: Generate Records service spec{{% /fragment %}}
-
+- {{% fragment %}}Achievement: Generate Records service spec [BROWSER DEMO]{{% /fragment %}}
     
 ---
 ### SwaggerUI
-- {{% fragment %}}Turns OAS spec files into browsable UI{{% /fragment %}}
+- {{% fragment %}}Browser UI for OAS spec files {{% /fragment %}}
 - {{% fragment %}}Achievement: Browse Reports Microservice API via local spec file[BROWSER DEMO]{{% /fragment %}}
 
 ---
@@ -64,6 +66,6 @@ Document your APIs
 
 ---
 ### The Dream
-- {{% fragment %}}That each service generates OAS specs and publishes to SwaggerHub{{% /fragment %}}
-- {{% fragment %}}That Front-end & Back-end engineers *start* with the API spec{{% /fragment %}}
+- {{% fragment %}}Each service generates/publishes OAS specs to SwaggerHub{{% /fragment %}}
+- {{% fragment %}}Front-end & Back-end engineers start *and continue* with API spec{{% /fragment %}}
 - {{% fragment %}}We only write logic code.{{% /fragment %}}

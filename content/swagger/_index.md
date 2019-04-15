@@ -2,7 +2,7 @@
 title = "Put some Swagger in your step"
 outputs = ["Reveal"]
 +++
-# Let's talk about swagger
+# Let's talk about Swagger
 
 ---
 Document your APIs
@@ -19,37 +19,31 @@ Document your APIs
 
 
 ---
-### Components
-- OpenAPI Specification
-- Gradle Plugin
-- UI
-- Codegen
-- Editor
-- Hub
+# 5 Components
 
 ---
-### OpenAPI Specification
-- YAML or JSON
+### 1. OpenAPI Specification
+- {{% fragment %}}YAML or JSON{{% /fragment %}}
 - {{% fragment %}}Documents all facets of your API{{% /fragment %}}
-    - {{% fragment %}}URL{{% /fragment %}}
+    - {{% fragment %}}URLs & REST verbs{{% /fragment %}}
     - {{% fragment %}}Parameters{{% /fragment %}}
-    - {{% fragment %}}Success/Error return values{{% /fragment %}}
-    - {{% fragment %}}Models/Entities/DTOs{{% /fragment %}}
-    - {{% fragment %}}Examples{{% /fragment %}}
-- {{% fragment %}}Achievement: Create Full MedClaims spec file: [IDE_DEMO] {{% /fragment %}}
+    - {{% fragment %}}Return values/errors{{% /fragment %}}
+    - {{% fragment %}}Models/DTOs{{% /fragment %}}
+    - {{% fragment %}}In-line Examples{{% /fragment %}}
+- {{% fragment %}}Achievement: Create Full MedClaims spec file [IDE_DEMO] {{% /fragment %}}
 
 ---
-### Gradle plugin
+### 2. Gradle plugin
 - {{% fragment %}}Generate spec files from existing projects{{% /fragment %}}
-- {{% fragment %}}Achievement: Full Records service spec [BROWSER DEMO]{{% /fragment %}}
+- {{% fragment %}}Achievement: Full Records service spec{{% /fragment %}}
     
 ---
-### SwaggerUI
+### 3. SwaggerUI
 - {{% fragment %}}Browser UI for OAS spec files {{% /fragment %}}
-- {{% fragment %}}Achievement: Browse Reports Microservice API via local spec file[BROWSER DEMO]{{% /fragment %}}
+- {{% fragment %}}Achievement: Browse Reports Microservice spec file[BROWSER DEMO]{{% /fragment %}}
 
 ---
-### Swagger Codegen
+### 4. Swagger Codegen
 - {{% fragment %}}Generate client/server stubs from OAS spec{{% /fragment %}}
     - {{% fragment %}} JAXRS, Jersey, RESTEasy, Spring {{% /fragment %}}
     - {{% fragment %}} Typescript/Angular {{% /fragment %}}
@@ -58,7 +52,7 @@ Document your APIs
     {{% fragment %}}with all relevant Server/Client implementations[IDE DEMO]{{% /fragment %}}
 
 ---
-### SwaggerHub
+### 5. SwaggerHub
 - {{% fragment %}}Ties all of these projects together{{% /fragment %}}
 - {{% fragment %}}Source of truth for API documentation{{% /fragment %}}
 - {{% fragment %}}Achievement: Browse MedClaims & Reports from the same hub[BROWSER DEMO]{{% /fragment %}}

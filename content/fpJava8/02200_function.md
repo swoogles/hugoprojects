@@ -1,3 +1,6 @@
++++
++++
+
 {{% section %}}
 ### Function&lt;T,R&gt;
 "Take a T and return an R"
@@ -8,3 +11,5 @@
 
 {{% /section %}}
 
+
+# Hi

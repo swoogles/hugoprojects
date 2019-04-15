@@ -1,5 +1,6 @@
++++
++++
 
----
 - Predicate<T>
 - Function<T,R> 
 

@@ -1,4 +1,4 @@
-package  weather
+package weather
 
 import (
 	"encoding/json"
@@ -10,28 +10,33 @@ import (
 
 type TimePeriodData struct {
 	Summary string // This isn't handling some symbols, like '<'
-	Icon string
+	Icon    string
 }
 
 type DataPoint struct {
 	ApparentTemperature float64
-	Temperature float64
-	Summary string
-	CloudCover float64
-	PrecipIntensity float64
-	PrecipProbability float64
-	WindSpeed float64
+	Temperature         float64
+	Summary             string
+	CloudCover          float64
+	PrecipIntensity     float64
+	PrecipProbability   float64
+	WindSpeed           float64
+	Time                int64
+}
+
+func (m DataPoint) TypedTime() time.Time {
+	return time.Unix(0, m.Time*int64(time.Millisecond))
 }
 
 type ForeCast struct {
-	Timezone string
+	Timezone  string
 	Currently DataPoint
-	Hourly TimePeriodData
-	Daily TimePeriodData
+	Hourly    TimePeriodData
+	Daily     TimePeriodData
 }
 
 type GpsCoordinates struct {
-	Latitude float64
+	Latitude  float64
 	Longitude float64
 }
 
@@ -50,18 +55,18 @@ func getTestData(url string) ForeCast {
 }
 
 func stringOf(coordinates GpsCoordinates) string {
-	return fmt.Sprintf("%f", coordinates.Latitude) + "," + fmt.Sprintf("%f",coordinates.Longitude)
+	return fmt.Sprintf("%f", coordinates.Latitude) + "," + fmt.Sprintf("%f", coordinates.Longitude)
 }
 
 func GetBasicForecast(darkSkyToken string, coordinates GpsCoordinates) ForeCast {
 
 	req3, _ := http.NewRequest(
 		"GET",
-		"https://api.darksky.net/forecast/" +
-			darkSkyToken +
-			"/" + stringOf(coordinates), nil)
+		"https://api.darksky.net/forecast/"+
+			darkSkyToken+
+			"/"+stringOf(coordinates), nil)
 	resp3, error := myClient.Do(req3)
-	if (error != nil) {
+	if error != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", error)
 		os.Exit(1)
 	}
@@ -69,7 +74,7 @@ func GetBasicForecast(darkSkyToken string, coordinates GpsCoordinates) ForeCast 
 	defer resp3.Body.Close()
 	var weatherForecast ForeCast
 	json.NewDecoder(resp3.Body).Decode(&weatherForecast)
-	return weatherForecast;
+	return weatherForecast
 }
 
 func main() {

@@ -16,12 +16,13 @@ func TestGetBasicForecast(t *testing.T) {
 	if error != nil {
 		panic(error)
 	}
+	fmt.Println("Typed time: " + decodedForeCast.Currently.TypedTime().String())
 	fmt.Println(fmt.Sprintf("%f", decodedForeCast.Currently.Temperature))
 	//t.Errorf("Failed forecast: %f", forecast.Currently.Temperature)
 
 	out, err := json.MarshalIndent(decodedForeCast, "", "  ")
 	if err != nil {
-		panic (err)
+		panic(err)
 	}
 
 	fmt.Println(string(out))

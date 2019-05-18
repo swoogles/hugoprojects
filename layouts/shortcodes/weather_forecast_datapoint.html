@@ -1,0 +1,5 @@
+{{ $foreCast := getJSON "https://www.billdingthings.com/.netlify/functions/hello-lambda" }}
+{{/*{{ $products := .Site.Data.products }}*/}}
+    {{/*<div class="col-lg">*/}}
+        {{$foreCast.Currently.TypedTime}}
+    {{/*</div>*/}}

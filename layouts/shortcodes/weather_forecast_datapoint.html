@@ -1,5 +1,15 @@
 {{ $foreCast := getJSON "https://www.billdingthings.com/.netlify/functions/hello-lambda" }}
 {{/*{{ $products := .Site.Data.products }}*/}}
     {{/*<div class="col-lg">*/}}
-        {{$foreCast.Currently.TypedTime}}
+
+<p>
+    {{ $foreCast.Location }}
+</p>
+<p>
+        {{ $foreCast.Currently.Time | int | dateFormat "Monday, Jan 2, 2006" }}
+</p>
+
+<p>
+        {{ $foreCast.Daily.Summary }}
+</p>
     {{/*</div>*/}}

@@ -33,6 +33,7 @@ type ForeCast struct {
 	Currently DataPoint
 	Hourly    TimePeriodData
 	Daily     TimePeriodData
+	Location  string
 }
 
 type GpsCoordinates struct {
@@ -58,7 +59,7 @@ func stringOf(coordinates GpsCoordinates) string {
 	return fmt.Sprintf("%f", coordinates.Latitude) + "," + fmt.Sprintf("%f", coordinates.Longitude)
 }
 
-func GetBasicForecast(darkSkyToken string, coordinates GpsCoordinates) ForeCast {
+func GetBasicForecast(darkSkyToken string, coordinates GpsCoordinates, location string) ForeCast {
 
 	req3, _ := http.NewRequest(
 		"GET",
@@ -74,6 +75,7 @@ func GetBasicForecast(darkSkyToken string, coordinates GpsCoordinates) ForeCast 
 	defer resp3.Body.Close()
 	var weatherForecast ForeCast
 	json.NewDecoder(resp3.Body).Decode(&weatherForecast)
+	weatherForecast.Location = location
 	return weatherForecast
 }
 

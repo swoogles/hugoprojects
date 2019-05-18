@@ -12,3 +12,5 @@ outputs = ["Reveal"]
 
 [Swagger]({{< ref "swagger/_index.md" >}})
 
+[Weather]({{< ref "weather/_index.md" >}})
+

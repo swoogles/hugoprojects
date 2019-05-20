@@ -49,7 +49,7 @@ func main() {
 	resp2, _ := client.Do(req2)
 	defer resp2.Body.Close()
 
-	var finalText string = "This is live data: \n"
+	var finalText = "This is live data: \n"
 	var commitList2 []GitHubCommit
 	json.NewDecoder(resp2.Body).Decode(&commitList2)
 	for i := 0; i < len(commitList2); i++ {

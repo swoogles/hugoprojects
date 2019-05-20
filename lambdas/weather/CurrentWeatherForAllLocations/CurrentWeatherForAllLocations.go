@@ -13,7 +13,7 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	var darkSkyToken = os.Getenv("DARK_SKY_TOKEN")
 
 	mountainCoordinates := []weather.GpsCoordinates{
-		{38.8697, -106.9878},
+		{38.8697, -106.9878, "Crested Butte"},
 	}
 	var weatherForecast = weather.GetBasicForecast(darkSkyToken, mountainCoordinates[0], "Crested Butte")
 	out, _ := json.MarshalIndent(weatherForecast, "", "  ")

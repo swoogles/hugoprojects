@@ -1,6 +1,6 @@
 [build]
 command = "make build"
-functions = "functions"
+functions = "lambdas"
 publish = "public"
 
 [build.environment]

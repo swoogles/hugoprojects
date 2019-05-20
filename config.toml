@@ -11,7 +11,7 @@ isHTML = true
 
 [build]
 publish = "public"
-command = "make build"
+command = "hugo"
 
 [build.environment]
 HUGO_VERSION = "0.47"

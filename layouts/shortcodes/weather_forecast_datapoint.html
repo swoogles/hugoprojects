@@ -1,13 +1,13 @@
-{{ $foreCast := getJSON "https://www.billdingthings.com/.netlify/functions/current_forecasts" }}
-
-<p>
-    Location: {{ $foreCast.Location }}
-</p>
-<p>
-    {{ $foreCast.Currently.Time | int | dateFormat "Monday, Jan 2, 15:04 2006" }}
-</p>
-
-<p>
-        {{ $foreCast.Daily.Summary }}
-</p>
-    </div>
+{{/*{{ $foreCast := getJSON "https://www.billdingthings.com/.netlify/functions/current_forecasts" }}*/}}
+{{/**/}}
+{{/*<p>*/}}
+    {{/*Location: {{ $foreCast.Location }}*/}}
+{{/*</p>*/}}
+{{/*<p>*/}}
+    {{/*{{ $foreCast.Currently.Time | int | dateFormat "Monday, Jan 2, 15:04 2006" }}*/}}
+{{/*</p>*/}}
+{{/**/}}
+{{/*<p>*/}}
+        {{/*{{ $foreCast.Daily.Summary }}*/}}
+{{/*</p>*/}}
+    {{/*</div>*/}}

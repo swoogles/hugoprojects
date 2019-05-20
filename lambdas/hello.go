@@ -29,8 +29,10 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 	req2, _ := http.NewRequest("GET", "https://api.github.com/repos/swoogles/Physics/commits", nil)
 	req2.SetBasicAuth("swoogles", "01fd15407121c063f75f086f21440095e753c869")
 
-	crestedButteCoordinates := weather.GpsCoordinates{38.8697, -106.9878}
-	var weatherForecast = weather.GetBasicForecast(darkSkyToken, crestedButteCoordinates, "Crested Butte")
+	mountainCoordinates := []weather.GpsCoordinates{
+		{38.8697, -106.9878},
+	}
+	var weatherForecast = weather.GetBasicForecast(darkSkyToken, mountainCoordinates[0], "Crested Butte")
 	/*
 	   for i := 0; i < len(commitList2); i++ {
 	       finalText += commitList2[i].Sha + " " + commitList2[i].Commit.Message

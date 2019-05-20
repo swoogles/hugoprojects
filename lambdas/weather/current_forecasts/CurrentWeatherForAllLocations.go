@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/swoogles/ColoradoWeatherMap/darksky"
@@ -24,5 +25,6 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 }
 
 func main() {
+	fmt.Println("WHY?!")
 	lambda.Start(handler)
 }

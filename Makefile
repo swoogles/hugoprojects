@@ -1,5 +1,5 @@
 build:
-	hugo -v
-	mkdir -p functions
+	mkdir -p lambdas
 	go get ./...
-	go build -o functions/hello-lambda  ./lambdas
+	go build -o lambdas/current_forecasts  ./functions/weather
+	hugo -v

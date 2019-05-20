@@ -8,10 +8,3 @@ theme = "reveal-hugo"
 baseName = "index"
 mediaType = "text/html"
 isHTML = true
-
-[build]
-publish = "public"
-command = "make build"
-
-[build.environment]
-HUGO_VERSION = "0.47"

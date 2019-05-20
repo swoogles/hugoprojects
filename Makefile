@@ -2,4 +2,4 @@ build:
 	hugo -v
 	mkdir -p functions
 	go get ./...
-	go build -o functions/hello-lambda  ./weather/CurrentWeatherForAllLocations
+	go build -o functions/hello-lambda  ./lambdas/weather/CurrentWeatherForAllLocations

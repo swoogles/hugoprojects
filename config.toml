@@ -9,9 +9,5 @@ baseName = "index"
 mediaType = "text/html"
 isHTML = true
 
-[build]
-publish = "public"
-command = "hugo"
-
 [build.environment]
 HUGO_VERSION = "0.55"
